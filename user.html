@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Dashboard - Bootstrap Admin</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+
+    <link href="./css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="./css/bootstrap-responsive.min.css" rel="stylesheet"/>
+
+
+    <link href="./css/font-awesome.css" rel="stylesheet"/>
+
+    <link href="./css/adminia.css" rel="stylesheet"/>
+    <link href="./css/adminia-responsive.css" rel="stylesheet"/>
+
+    <link href="./css/pages/dashboard.css" rel="stylesheet"/>
+    <script src=" https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+<style>
+    .td {
+        width: 100px;
+        overflow: hidden
+    }
+
+</style>
+<body>
+
+<!--<a href="javascript:history.go(-1);" style="display: block; /* 设置为块元素 */-->
+<!--        text-align: center;-->
+<!--        border: 1px solid #ccc;-->
+<!--        font-size: 16px;-->
+<!--        font-weight: 600;-->
+<!--        color: #95B8CE;" >返回上一页</a>-->
+
+
+<div id="content" style="background: linear-gradient(150deg, #D8E3E7 0%, #a0e8f5 70%);">
+
+    <div class="container">
+
+        <div class="span12">
+            <!--用户信息-->
+            <div class="account-container">
+
+                <div class="account-avatar">
+                    <img src="./img/logo.png" alt="" class="thumbnail"/>
+                </div> <!-- /account-avatar -->
+
+                <div class="account-details">
+
+                    <span id="account-name">用户名</span>
+
+                    <span class="account-role">权限:用户权限</span>
+
+                    <span class="account-actions">
+                            <span id="account-email">用户邮箱</span>
+						</span>
+
+                </div> <!-- /account-details -->
+
+            </div> <!-- /account-container -->
+            <!--标签栏-->
+            <h1 class="page-title">
+                <i class="icon-home"></i>
+                整体信息
+            </h1>
+            <!--标签栏-->
+            <div class="stat-container">
+
+                <div class="stat-holder">
+                    <div class="stat" id="counts">
+                        <span>564</span>
+                        总查询次数
+                    </div> <!-- /stat -->
+                </div> <!-- /stat-holder -->
+
+                <div class="stat-holder">
+                    <div class="stat" id="days">
+                        <span>423</span>
+                        学习天数
+                    </div> <!-- /stat -->
+                </div> <!-- /stat-holder -->
+
+                <div class="stat-holder">
+                    <div class="stat" id="todays">
+                        <span>2</span>
+                        今日查词
+                    </div> <!-- /stat -->
+                </div> <!-- /stat-holder -->
+
+            </div> <!-- /stat-container -->
+            <!--chart-->
+            <div class="widget">
+
+                <div class="widget-header">
+                    <h3>近日查询统计</h3>
+                </div> <!-- /widget-header -->
+
+                <div class="widget-content">
+
+                    <div id="area-chart" class="chart-holder"></div> <!-- /area-chart -->
+
+
+                </div> <!-- /widget-content -->
+
+            </div> <!-- /widget -->
+
+
+            <!--chart-->
+            <div class="widget">
+
+                <div class="widget-header">
+                    <h3>查询类别统计</h3>
+                </div> <!-- /widget-header -->
+
+                <div class="widget-content">
+
+                    <div id="pie-chart" class="chart-holder"></div> <!-- /donut-chart -->
+
+
+                </div> <!-- /widget-content -->
+
+            </div> <!-- /widget -->
+
+
+            <!--table-->
+            <div class="widget widget-table">
+
+                <div class="widget-header">
+                    <i class="icon-th-list"></i>
+                    <h3>查询记录</h3>
+
+                </div> <!-- /widget-header -->
+
+                <div class="widget-content" style="height:200px;overflow-y:scroll">
+
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>查询记录</th>
+                            <th>查询模式</th>
+                            <th>查询时间</th>
+                            <th>内容概要</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                        </thead>
+
+                        <tbody id="contain">
+                        <tr>
+                            <td>1</td>
+                            <td>Michael</td>
+                            <td>Jordan</td>
+                            <td>@mjordan</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Magic</td>
+                            <td>Johnson</td>
+                            <td>@mjohnson</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Charles</td>
+                            <td>Barkley</td>
+                            <td>@cbarkley</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Karl</td>
+                            <td>Malone</td>
+                            <td>@kmalone</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>David</td>
+                            <td>Robinson</td>
+                            <td>@drobinson</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Reggie</td>
+                            <td>Miller</td>
+                            <td>@rmiller</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Clyde</td>
+                            <td>Drexler</td>
+                            <td>@cdrexler</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>Hakeem</td>
+                            <td>Olajuwon</td>
+                            <td>@holajuwon</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div> <!-- /widget-content -->
+
+            </div> <!-- /widget -->
+
+        </div> <!-- /span9 -->
+
+    </div> <!-- /container -->
+
+</div> <!-- /content -->
+
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="./js/jquery-1.7.2.min.js"></script>
+<script src="./js/excanvas.min.js"></script>
+<script src="./js/jquery.flot.js"></script>
+<script src="./js/jquery.flot.pie.js"></script>
+<script src="./js/jquery.flot.orderBars.js"></script>
+<script src="./js/jquery.flot.resize.js"></script>
+
+<!-- 画图的js都在charts下面 可以根据要求改 -->
+<script src="./js/bootstrap.js"></script>
+<script src="./js/charts/bar.js"></script>
+<script src="./js/charts/area.js"></script>
+<script src="./js/charts/line.js"></script>
+<script>
+
+    // 根据数组的内容,生成页面中的table表格
+    // 建立数组
+    var arr = [];
+
+    window.onload = function () {
+        console.log(localStorage.string);
+        //table
+        $.ajax({
+            type: "GET",
+            url: "https://ppreader.creativecc.cn/api/others/getqueryinfo" + "?usrid=" + localStorage.string,
+            data: "",
+
+            success: function (data) {
+                console.log(data);
+                if (data['status'] == 200) {
+                    data1 = data['res'];
+                    for (var i = 0; i < data1.length; i++) {
+                        var arr1 = [data1[i]['content'], data1[i]['mode'], data1[i]['time'], data1[i]['result']]
+                        arr.push(arr1);
+                    }
+                    table();
+
+                } else {
+                    localStorage.string = 1000;
+                }
+
+            },
+            error: function (data) {
+                alert("error!")
+            }
+        });
+        //others
+        $.ajax({
+            type: "GET",
+            url: "https://ppreader.creativecc.cn/api/others/getquerycounts" + "?usrid=" + localStorage.string,
+            data: "",
+
+            success: function (data) {
+                console.log(data);
+                if (data['status'] == 200) {
+
+                    const counts = document.getElementById("counts");
+                    const todays = document.getElementById("todays");
+                    const days = document.getElementById("days");
+                    counts.innerHTML = "<span>" + data['all'] + "</span>" + "总查询次数";
+                    todays.innerHTML = "<span>" + data['today'] + "</span>" + "今日查词";
+                    days.innerHTML = "<span>" + data['days'] + "</span>" + "学习天数";
+                    var datas = data['res'];
+                    area(datas);
+                    var datas2 = data['modedict'];
+                    pie(datas2);
+
+                } else {
+                    localStorage.string = 1000;
+                }
+
+            },
+            error: function (data) {
+                alert("error!")
+            }
+        });
+
+
+        $.ajax({
+            type: "GET",
+            url: "https://ppreader.creativecc.cn/api/others/getuserinfo" + "?usrid=" + localStorage.string,
+            data: "",
+
+            success: function (data) {
+                console.log(data);
+                const name = document.getElementById("account-name");
+                const email = document.getElementById("account-email");
+                name.innerText = "用户名：" + data['username'];
+                email.innerText = "用户邮箱：" + data['email'];
+
+
+            },
+            error: function (data) {
+                alert("error!")
+            }
+        });
+
+    }
+
+
+    function table() {
+        // 定义变量,存储生成的字符串内容,使用 += 拼接字符串形式
+        var str = '';
+        //外层循环,生成tr
+        for (var i = 0; i <= arr.length - 1; i++) {
+            // 外层循环生成tr标签,循环几次,就生成几个tr标签
+            // 因为tr标签中还要有td内容,要将两个tr标签,分开,写成拼接的形式
+            str += '<tr>';
+
+            // 第一个单元格是单独生成的,不参与内层循环,是 当前 外层循环 索引下标+1
+            str += `<td>${i + 1}</td>`;
+
+            //当前行,对应的二维数组，循环的对象是 arr[i] ,
+            //生成 arr[i] 的所有的索引下标，通过索引下标,获取对应的数据。
+            // 起始数值是0 终止数值是 arr[i]的最大索引下标，arr[i]的length-1
+            for (var j = 0; j <= arr[i].length - 1; j++) {
+                // 每一个单元的内容,就是当前二维数组单元的数据内容
+                // 获取二维数组, 数组变量[一维索引][二维索引] 一维索引是i 二维索引是j
+                str += `<td>${arr[i][j]}</td>`;
+            }
+            str += '</tr>';
+        }
+        // 将定义好的内容,写入到taody标签中
+        contain.innerHTML = str;
+    }
+
+
+    function area(data) {
+        // we use an inline data source in the example, usually data would
+        // be fetched from a server
+        var res = [];
+        var xlabel = new Array();
+        var count = 0;
+        for (const key in data) {
+            res.push([count, data[key]]);
+            xlabel.push([count++, key]);
+        }
+
+
+        // setup plot
+        var options = {
+            yaxis: {min: 0, max: data.length},
+            xaxis: {min: 0, max: data.length, ticks: xlabel},
+            colors: ["#BFD3DD", "#3C4049", "#95B8CE", "#BBB"],
+
+            series: {
+                lines: {
+                    lineWidth: 2,
+                    fill: true,
+                    fillColor: {colors: [{opacity: 0.6}, {opacity: 0.2}]},
+                    steps: false
+
+                }
+            }
+        };
+
+        var plot = $.plot($("#area-chart"), [res], options);
+
+    }
+
+    function pie(datas) {
+        console.log(datas);
+        console.log(datas[0].keys);
+
+
+        var data = [];
+        for (var key in datas) {
+            data.push({label: 'mode' + key, data: datas[key]});
+        }
+
+        $.plot($("#pie-chart"), data,
+            {
+                colors: ["#BFD3DD", "#3C4049", "#95B8CE", "#BBB"],
+
+                series: {
+                    pie: {
+                        show: true,
+                        radius: 1, //半径
+                        label: {
+                            show: true,
+                            radius: 2 / 3,
+                            formatter: function (label, series) {
+                                return '<div style="font-size:8pt;text-align:center;padding:2px;color:white;">' + label + '<br/>' + Math.round(series.percent) + '%</div>';
+                            },
+                            threshold: 0.03  //这个值小于0.03，也就是3%时，label就会隐藏
+                        }
+                    }
+                },
+                legend: {
+                    show: false
+                }
+
+            });
+
+    }
+
+    $("#pie-chart").bind("plothover", pieHover);
+    $("#pie-chart").bind("plotclick", pieClick);
+
+
+    function pieHover(event, pos, obj) {
+        if (!obj)
+            return;
+        percent = parseFloat(obj.series.percent).toFixed(2);
+        $("#hover").html('<span style="font-weight: bold; color: ' + obj.series.color + '">' + obj.series.label + ' (' + percent + '%)</span>');
+    }
+
+    function pieClick(event, pos, obj) {
+        if (!obj)
+            return;
+        percent = parseFloat(obj.series.percent).toFixed(2);
+        alert('' + obj.series.label + ': ' + percent + '%');
+
+    }
+</script>
+
+</body>
+</html>
